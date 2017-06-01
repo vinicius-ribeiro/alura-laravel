@@ -1,18 +1,23 @@
 <?php 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Request;
 
 class ProdutoController extends Controller {
 
 	public function lista() {
-		$html     = '<h1>Listagem de Prodtutos</h1>';
 		$produtos = DB::select('select * from produtos');
+		return view('listagem')->with('produtos', $produtos);
+	}
 
-		foreach ($produtos as $p) :
-			$html .= "<br> Nome: {$p->nome}";
-		endforeach;
-
-		return $html;
+	public function mostra () {
+		//$id      =  Request::input('id', '1'); ASSIM PEGA VARIAVEIS
+		$id       = Request::route('id'); // ASSIM PEGA A VARIAVEL DA ROTA
+		$produto = DB::select('select * from produtos where id = ?', [$id]);
+		if(empty($produto)) {
+	    return "Esse produto não existe";
+	  }
+		return view('detalhes')->with('p', $produto[0]);
 	}
 
 }
