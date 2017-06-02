@@ -6,12 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
-	
-	<h1>Detalhes do Produtos - <?php echo $p->nome; ?></h1>	
-	<ul>
-		<li>Descrição: <?php echo $p->descricao; ?></li>
-		<li></li>
-		<li></li>
-	</ul>
+@yield('conteudo')
 </body>
 </html>
