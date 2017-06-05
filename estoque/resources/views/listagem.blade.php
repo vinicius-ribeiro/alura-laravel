@@ -13,4 +13,10 @@
 	</tr>
 	@endforeach
 </table>
+
+@if(old('nome'))
+<p class="alert alert-success">
+Produto {{old('nome')}} adicionado com sucesso!
+</p>
+@endif
 @stop

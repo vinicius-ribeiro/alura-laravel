@@ -6,6 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
+<div class="container">
+
+<a href="/produtos/novo">Novo</a> - 
+<a href="/produtos">Listar</a>
+
 @yield('conteudo')
+</div>
 </body>
 </html>
